@@ -1,0 +1,47 @@
+# ========================
+# Node / React
+# ========================
+node_modules/
+build/
+dist/
+.npm/
+.pnpm-debug.log*
+yarn-error.log
+.yarn/
+.yarnrc.yml
+
+# ========================
+# IDE / Editor
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+
+# ========================
+# Java / Spring Boot
+# ========================
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# ========================
+# Logs & Temp files
+# ========================
+*.log
+*.tmp
+*.pid
+*.seed
+.DS_Store
+
+# ========================
+# Environment & Config
+# ========================
+.env
+.env.local
+.env.*.local
+application.properties
+application.yml
