@@ -1,2 +1,218 @@
-.test {
+/* ================= HEADER ================= */
+.header {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  background: #fff; /* làm header sáng rõ ràng */
+}
+
+.header .inner-logo img {
+  max-height: 50px;
+  width: auto; /* giữ tỉ lệ */
+  display: block;
+}
+
+/* Menu */
+.header .inner-menu > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.header .inner-menu > ul > li {
+  margin-left: 20px;
+}
+
+.header .inner-menu > ul > li a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.header .inner-menu > ul > li a:hover {
+  color: green;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+}
+
+/* ================= BOX-HEAD ================= */
+.box-head {
+  margin-bottom: 30px;
+  text-align: center; /* căn giữa tiêu đề */
+}
+
+.box-head .inner-title {
+  margin-bottom: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: green;
+}
+
+/* ================= CARD ================= */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.card .btn {
+  align-self: flex-start;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: green;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.card .btn:hover {
+  background: darkgreen;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .header .inner-menu > ul {
+    justify-content: center;
+  }
+
+  .card img {
+    height: 150px; /* nhỏ lại cho mobile */
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+}
+/* Khung mỗi bài hát */
+.song-item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.song-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Ảnh bài hát */
+.inner-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Nội dung */
+.inner-content {
+  padding: 12px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Tựa đề */
+.inner-title a {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.inner-title a:hover {
+  color: #007bff;
+}
+
+/* Ca sĩ */
+.inner-singer {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.inner-singer i {
+  margin-right: 6px;
+  color: #888;
+}
+
+/* Lượt thích */
+.inner-like {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.inner-like i {
+  margin-right: 6px;
+  color: #e74c3c;
+}
+
+/* Thời gian */
+.inner-time {
+  font-size: 13px;
+  color: #777;
+}
+
+.inner-time i {
+  margin-right: 6px;
+  color: #555;
 }

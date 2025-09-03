@@ -1,20 +1,19 @@
 import mongoose, { Schema } from "mongoose";
-
-const topicSchema = new Schema(
+const singerSchema = new Schema(
   {
-    title: String,
+    fullName: String,
     avatar: String,
-    description: String,
+    status: String,
     slug: String,
     deleted: {
       type: Boolean,
       default: false,
     },
-    deleteAt: Date,
+    deletedAt: Date,
   },
   {
     timestamps: true,
   }
 );
-const Topic = mongoose.model("Topic", topicSchema, "topics");
-export default Topic;
+const Singer = mongoose.model("Singer", singerSchema, "singers");
+export default Singer;
