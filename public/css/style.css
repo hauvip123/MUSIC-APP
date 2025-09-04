@@ -216,3 +216,179 @@
   margin-right: 6px;
   color: #555;
 }
+.singer-detail {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.inner-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.inner-actions {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.inner-action {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.inner-action i {
+  margin-right: 8px;
+  color: #007bff;
+}
+
+.inner-action.inner-time {
+  background-color: #e9ecef;
+}
+
+.inner-action.inner-singer i {
+  color: #28a745;
+}
+
+.inner-action.inner-topic i {
+  color: #dc3545;
+}
+
+.inner-action.inner-like i {
+  color: #ffc107;
+}
+
+.inner-action.inner-heart i {
+  color: #ff4444;
+}
+
+.inner-play {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.inner-avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #007bff;
+}
+
+.inner-audio {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.inner-audio audio {
+  width: 100%;
+  outline: none;
+}
+
+.inner-desc {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.inner-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+.inner-text {
+  color: #666;
+  line-height: 1.6;
+  padding-left: 10px;
+  border-left: 4px solid #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .inner-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .inner-play {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .inner-avatar img {
+    margin-bottom: 15px;
+  }
+
+  .inner-audio {
+    margin-left: 0;
+  }
+}
+.inner-actions {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.inner-action {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+  font-size: 0.9rem;
+  color: #333;
+  font-family: "Nunito", sans-serif;
+}
+
+.inner-action.inner-time {
+  color: #007bff; /* Màu xanh cho ngày */
+}
+
+.inner-action.inner-singer {
+  color: #28a745; /* Màu xanh lá cho ca sĩ */
+}
+
+.inner-action.inner-topic {
+  color: #dc3545; /* Màu đỏ cho thể loại */
+}
+
+.inner-action.inner-like {
+  color: #ffc107; /* Màu vàng cho lượt thích */
+}
+
+.inner-action.inner-heart {
+  color: #ff4444; /* Màu đỏ cho yêu thích */
+}
+
+.inner-action i {
+  margin-right: 6px;
+}

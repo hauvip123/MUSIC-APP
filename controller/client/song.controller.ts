@@ -23,9 +23,17 @@ export const list = async (req: Request, res: Response) => {
     });
     song["infoSinger"] = singer;
   }
-  console.log(songs);
   res.render("client/pages/songs/list", {
     pageTitle: topic?.title,
     songs: songs,
+  });
+};
+
+// GET /songs/detail/:slugSong
+export const detail = async (req: Request, res: Response) => {
+  const detal: String = req.params.slugSong;
+  console.log(detal);
+  res.render("client/pages/songs/detail", {
+    pageTitle: "Chi tiết bài hát",
   });
 };
