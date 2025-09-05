@@ -195,15 +195,40 @@
 }
 
 /* Lượt thích */
+/* Khối like chung */
 .inner-like {
   font-size: 14px;
   color: #444;
   margin-bottom: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s ease;
 }
 
+/* Icon mặc định (chưa like) */
 .inner-like i {
   margin-right: 6px;
+  color: #444; /* xám */
+  font-size: 16px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Text số like mặc định */
+.inner-like span {
+  color: #444;
+  transition: color 0.3s ease;
+}
+
+/* Khi active (đã like) */
+.inner-like.active i {
+  color: #e74c3c; /* đỏ */
+  transform: scale(1.2); /* hiệu ứng nhấn nhẹ */
+}
+
+.inner-like.active span {
   color: #e74c3c;
+  font-weight: bold;
 }
 
 /* Thời gian */
