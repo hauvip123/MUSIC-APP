@@ -17,12 +17,13 @@ block main
             div(class="inner-action inner-topic")
               i(class="fa-solid fa-music") 
               | #{topic.title}
-            div(class="inner-action inner-like" button-like= song._id)
+            div(class="inner-action inner-like" button-like=song._id)
               i(class="fa-regular fa-thumbs-up") 
               span #{song.like}
-            div(class="inner-action inner-heart")
+            div(class=("inner-action inner-heart" + (song.isFavoriteSong ? " active" : "")) button-favorite=song._id)
               i(class="fa-regular fa-heart") 
               | Bài hát yêu thích
+
           .inner-play
             .inner-avatar
               img(src=`${song.avatar}` alt=`${song.title}`)

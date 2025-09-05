@@ -5,6 +5,7 @@ const songSchema = new Schema(
     title: String,
     avatar: String,
     description: String,
+    isFavoriteSong: Boolean,
     singerId: String,
     topicId: String,
     like: Number,

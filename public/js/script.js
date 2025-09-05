@@ -34,3 +34,20 @@ if (buttonLike) {
       });
   });
 }
+// Buttion favorite
+const buttonFavorite = document.querySelector("[button-favorite]");
+if (buttonFavorite) {
+  buttonFavorite.addEventListener("click", async () => {
+    let idSong = buttonFavorite.getAttribute("button-favorite");
+    const isActive = buttonFavorite.classList.contains("active");
+    const typeFavorite = isActive ? "unfavorite" : "favorite";
+    const link = `/songs/favorite/${typeFavorite}/${idSong}`;
+    const option = { method: "PATCH" };
+    fetch(link, option)
+      .then((res) => res.json())
+      .then((data) => {
+        buttonFavorite.classList.toggle("active");
+        console.log(data);
+      });
+  });
+}

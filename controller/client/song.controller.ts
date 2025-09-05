@@ -2,7 +2,7 @@ import { Response, Request } from "express";
 import Topic from "../../models/topic.model";
 import Song from "../../models/song.model";
 import Singer from "../../models/singer.model";
-
+import FavoriteSong from "../../models/favorite-song.model";
 // GET /songs/:slug
 export const list = async (req: Request, res: Response) => {
   const topic = await Topic.findOne({
@@ -42,6 +42,17 @@ export const detail = async (req: Request, res: Response) => {
     status: "active",
     deleted: false,
   }).select("fullName");
+  const favoriteSong = await FavoriteSong.findOne({
+    songId: song?._id,
+  });
+  if (!song) {
+    return res.json({
+      code: 404,
+      message: "Bài hát không tồn tại",
+    });
+  }
+
+  song["isFavoriteSong"] = favoriteSong ? true : false;
   const topic = await Topic.findOne({
     _id: song?.topicId,
     status: "active",
@@ -54,7 +65,7 @@ export const detail = async (req: Request, res: Response) => {
     topic: topic,
   });
 };
-// GET /songs/like/:typelike/yes/:idSong
+// POST /songs/like/:typelike/yes/:idSong
 export const like = async (req: Request, res: Response) => {
   const idSong: String = req.params.idSong;
   const typelike: String = req.params.typelike;
@@ -83,5 +94,30 @@ export const like = async (req: Request, res: Response) => {
     code: 200,
     message: "Cảm ơn bạn đã thích bài hát này",
     like: newLike,
+  });
+};
+// POST /songs/favorite/:typefavorite/yes/:idSong
+export const favorite = async (req: Request, res: Response) => {
+  const idSong: String = req.params.idSong;
+  const typefavorite: String = req.params.typefavorite;
+  if (typefavorite == "favorite") {
+    const existFavorite = await FavoriteSong.findOne({
+      songId: idSong,
+    });
+    if (!existFavorite) {
+      const newFavorite = new FavoriteSong({
+        userId: "",
+        songId: idSong,
+      });
+      await newFavorite.save();
+    }
+  } else {
+    await FavoriteSong.deleteOne({
+      songId: idSong,
+    });
+  }
+  res.json({
+    code: 200,
+    message: "Chức năng yêu thích sẽ sớm được cập nhật",
   });
 };
