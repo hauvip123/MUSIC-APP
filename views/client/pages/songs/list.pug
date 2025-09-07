@@ -6,26 +6,26 @@ block main
     .row 
       .col-12
         +box-head(pageTitle)
-
-    if songs && songs.length
-      each song in songs
-        .col-6.mb-3
-          .song-item
-            .inner-image
+    .row 
+      if songs && songs.length
+        each song in songs
+          .col-6.mb-3
+            .song-item
+              .inner-image
               a(href=`/songs/detail/${song.slug}`)
                 img(src=song.avatar alt=song.title)
-            .inner-content
-              .inner-title
-                a(href=`/songs/detail/${song.slug}`)= song.title
-              .inner-singer
-                i.fa-solid.fa-microphone-lines
-                |  #{song.infoSinger ? song.infoSinger.fullName : 'Không rõ ca sĩ'}
-              .inner-like
-                i.fa-solid.fa-thumbs-up
-                |  #{song.like || 0}
-              .inner-time
-                i.fa-regular.fa-clock
-                |  Hôm nay
-    else
-      .col-12
-        p.text-center Không có bài hát nào trong chủ đề này.
+              .inner-content
+                .inner-title
+                  a(href=`/songs/detail/${song.slug}`) #{song.title}
+                .inner-singer
+                  i.fa-solid.fa-microphone-lines
+                  |  #{song.infoSinger ? song.infoSinger.fullName : 'Không rõ ca sĩ'}
+                .inner-like
+                  i.fa-solid.fa-thumbs-up
+                  |  #{song.like || 0}
+                .inner-time
+                  i.fa-regular.fa-clock
+                  |  Hôm nay
+      else
+        .col-12
+          p.text-center Không có bài hát nào trong chủ đề này.

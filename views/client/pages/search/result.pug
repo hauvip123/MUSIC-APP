@@ -1,0 +1,31 @@
+extends ../../layout/default.pug
+include ../../mixins/box-head.pug
+
+block main 
+  .container.my-3
+    .row 
+      .col-12
+        +box-head(pageTitle)
+    .row
+        if searchSong.length === 0
+          .col-12
+            h3.text-center.text-danger Không tìm thấy bài hát nào!
+        else
+            each song in searchSong
+                .col-6.mb-3
+                    .song-item
+                        .inner-image
+                        a(href=`/songs/detail/${song.slug}`)
+                            img(src=song.avatar)
+                        .inner-content
+                            .inner-title
+                                a(href=`/songs/detail/${song.slug}`) #{song.title}
+                            .inner-singer
+                                i.fa-solid.fa-microphone-lines
+                                | #{song.infoSinger.fullName}
+                            .inner-like
+                                i.fa-solid.fa-thumbs-up
+                                | #{song.like}
+                            .inner-time
+                                i.fa-regular.fa-clock
+                                | Hôm nay
