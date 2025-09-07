@@ -5,8 +5,9 @@ import { converToSlug } from "../../helpers/converToSlug";
 interface SearchQuery {
   keyword: string;
 }
-// GET : /search/result
+// GET : /search/:type
 export const result = async (req: Request, res: Response) => {
+  const type = req.params.type;
   const keyword = req.query.keyword as string;
   const newSong = [];
   if (keyword) {
@@ -21,12 +22,33 @@ export const result = async (req: Request, res: Response) => {
       const infosinger = await Singer.findOne({
         _id: song.singerId,
       }).select("fullName");
-      song["infoSinger"] = infosinger;
+      newSong.push({
+        id: song._id,
+        title: song.title,
+        avatar: song.avatar,
+        like: song.like,
+        slug: song.slug,
+        infoSinger: {
+          fullName: infosinger?.fullName,
+        },
+      });
     }
-    newSong.push(...songs);
   }
-  res.render("client/pages/search/result", {
-    pageTitle: `Kết quả tìm kiếm : ${keyword}`,
-    searchSong: newSong,
-  });
+  switch (type) {
+    case "result":
+      res.render("client/pages/search/result", {
+        pageTitle: `Kết quả tìm kiếm : ${keyword}`,
+        searchSong: newSong,
+      });
+      break;
+    case "suggest":
+      res.json({
+        code: 200,
+        message: "Success",
+        searchSong: newSong,
+      });
+      break;
+    default:
+      break;
+  }
 };
