@@ -324,11 +324,12 @@
 .inner-audio {
   flex-grow: 1;
   margin-left: 20px;
+  height: 100px;
 }
 
 .inner-audio audio {
-  width: 100%;
-  outline: none;
+  width: 50%;
+  height: 100px;
 }
 
 .inner-desc {
@@ -481,3 +482,109 @@
 }
 
 /* End song-item */
+/* Toàn bộ khung APlayer */
+#aplayer {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+/* Thanh thông tin bài hát */
+#aplayer .aplayer-info {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Ảnh bìa */
+#aplayer .aplayer-pic {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Tên bài hát */
+#aplayer .aplayer-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Tên ca sĩ */
+#aplayer .aplayer-author {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Thanh tiến trình */
+#aplayer .aplayer-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+}
+#aplayer .aplayer-played {
+  background: linear-gradient(90deg, #ff4b2b, #ff416c);
+}
+
+/* Nút play/pause */
+#aplayer .aplayer-play {
+  color: #ff416c;
+  font-size: 22px;
+  transition: transform 0.2s ease;
+}
+#aplayer .aplayer-play:hover {
+  transform: scale(1.2);
+}
+
+/* Nút volume */
+#aplayer .aplayer-volume {
+  color: #555;
+}
+/* Căn giữa thông tin nhạc */
+#aplayer .aplayer-info {
+  display: flex;
+  align-items: center; /* Giữ tiêu đề và ca sĩ ở giữa */
+  padding: 8px 10px;
+}
+
+/* Tên bài hát */
+#aplayer .aplayer-title {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.2; /* giúp chữ không bị dãn xuống */
+  margin-right: 8px;
+}
+
+/* Tên ca sĩ */
+#aplayer .aplayer-author {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.2;
+}
+
+/* Khối chứa tiêu đề + ca sĩ */
+#aplayer .aplayer-music {
+  display: flex;
+  align-items: center; /* để ca sĩ và tiêu đề cùng nằm giữa */
+  gap: 6px;
+}
+/* Phần chứa toàn bộ info */
+#aplayer .aplayer-info {
+  display: flex;
+  flex-direction: column; /* sắp xếp dọc: trên = tiêu đề, dưới = thanh nhạc */
+  justify-content: center;
+  padding: 8px 10px;
+}
+
+/* Khối chứa tiêu đề + ca sĩ */
+#aplayer .aplayer-music {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px; /* tạo khoảng cách với thanh nhạc */
+}
+
+/* Thanh điều khiển (progress bar, thời gian, volume) */
+#aplayer .aplayer-controller {
+  width: 100%;
+}
