@@ -1,0 +1,32 @@
+extends ../../layout/default.pug
+include ../../mixins/box-head.pug
+
+block main 
+  .container.my-3
+    .row 
+        .col-12
+            +box-head(pageTitle)
+    
+    .row 
+        if favorites && favorites.length
+            each favorite in favorites
+                .col-6.mb-3
+                        .song-item
+                            .inner-image
+                                a(href=`/songs/detail/${favorite.slug}`)
+                                    img(src=favorite.avatar alt=favorite.title)
+                            .inner-content
+                                .inner-title
+                                    a(href=`/songs/detail/${favorite.slug}`) #{favorite.title}
+                                .inner-singer
+                                    i.fa-solid.fa-microphone-lines
+                                    |  #{favorite.infoSinger.fullName}
+                                .inner-heart.active
+                                    i.fa-regular.fa-heart
+                                    |  Yêu thích
+                                .inner-time
+                                    i.fa-regular.fa-clock
+                                    |  20/10/2023
+        else
+            .col-12
+                    p.text-center Không có bài hát nào yêu thích nào.
